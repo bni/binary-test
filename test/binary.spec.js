@@ -9,10 +9,10 @@ describe("binary", () => {
       try {
         const index = require("../binary/index");
 
-        yield index.fetchBinary({}, {}, (error, encodedContent) => {
-          assert.isString(encodedContent);
+        yield index.fetchBinary({}, {}, (error, response) => {
+          assert.isString(response.body);
 
-          const decodedContent = new Buffer(encodedContent, "base64");
+          const decodedContent = new Buffer(response.body, "base64");
 
           assert.deepEqual(decodedContent.slice(0, 4), new Buffer([0x25, 0x50, 0x44, 0x46]), "Invalid PDF");
 

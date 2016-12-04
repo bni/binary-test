@@ -28,10 +28,5 @@ functions:
     timeout: 10
     events:
       - http:
-          integration: lambda
           path: fetchBinary
           method: get
-          request:
-            passThrough: WHEN_NO_TEMPLATES
-            template:
-              application/pdf: '{"requestBody": "$input.body"}'

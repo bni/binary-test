@@ -8,28 +8,26 @@ module.exports.fetchBinary = Promise.coroutine(function* (event, context, callba
   console.log(event);
 
   try {
-    const content = fs.readFileSync("data/TMFFB_2Pedals_Template.pdf");
+    const content = fs.readFileSync("data/dell-u2713h_Users_Guide_en-us.pdf");
 
-	  //const document = new Buffer([0x25, 0x50, 0x44, 0x46, 0x2D, 0x31, 0x2E, 0x34]);
-
-    /*const response = {
+    const response = {
       statusCode: 200,
       headers: {
         "Content-Type": "application/pdf"
       },
-      body: document.toString("base64"),
+      body: content.toString("base64"),
       isBase64Encoded: true
-    };*/
+    };
 
-    return callback(null, content.toString("base64"));
+    return callback(null, response);
   } catch (errorMessage) {
     console.log(errorMessage);
 
-    /*const response = {
+    const response = {
       statusCode: 400,
       body: errorMessage
-    };*/
+    };
 
-    return callback(null, errorMessage);
+    return callback(null, response);
   }
 });
