@@ -3,8 +3,7 @@
   "version": "0.0.1",
   "description": "Binary Test",
   "author": "bnilsson@me.com",
-  "license": "UNLICENSED",
-  "private": true,
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/bni/binary-test"
