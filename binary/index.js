@@ -1,10 +1,8 @@
 "use strict";
 
-const Promise = require("bluebird");
-
 const fs = require("fs");
 
-module.exports.fetchBinary = Promise.coroutine(function* (event, context, callback) {
+module.exports.fetchBinary = (event, context, callback) => {
   console.log(event);
 
   try {
@@ -30,4 +28,4 @@ module.exports.fetchBinary = Promise.coroutine(function* (event, context, callba
 
     return callback(null, response);
   }
-});
+};

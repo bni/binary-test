@@ -7,7 +7,6 @@ package:
     - .idea/**
     - package.json
     - README.md
-    - node_modules/aws-sdk/**
     - node_modules/chai/**
     - node_modules/mocha/**
     - node_modules/serverless/**
