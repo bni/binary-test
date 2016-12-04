@@ -1,0 +1,37 @@
+service: binary-test
+
+package:
+  exclude:
+    - .DS_Store
+    - .git/**
+    - .idea/**
+    - package.json
+    - README.md
+    - node_modules/aws-sdk/**
+    - node_modules/chai/**
+    - node_modules/mocha/**
+    - node_modules/serverless/**
+    - test/**
+
+provider:
+  name: aws
+  runtime: nodejs4.3
+  profile: default
+  region: eu-west-1
+  stage: dev
+  cfLogs: true
+
+functions:
+  fetchBinary:
+    handler: binary/index.fetchBinary
+    memorySize: 1024
+    timeout: 10
+    events:
+      - http:
+          integration: lambda
+          path: fetchBinary
+          method: get
+          request:
+            passThrough: WHEN_NO_TEMPLATES
+            template:
+              application/pdf: '{"requestBody": "$input.body"}'
