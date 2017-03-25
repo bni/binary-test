@@ -11,9 +11,13 @@
   "scripts": {
     "test": "./node_modules/.bin/mocha"
   },
+  "dependencies": {
+    "moment": "2.18.1"
+  },
   "devDependencies": {
     "chai": "3.5.0",
     "mocha": "3.2.0",
-    "serverless": "1.9.0"
+    "serverless": "1.9.0",
+    "serverless-plugin-include-dependencies": "2.0.0"
   }
 }

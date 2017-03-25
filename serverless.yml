@@ -5,6 +5,9 @@ package:
   exclude:
     - "**/*"
 
+plugins:
+  - serverless-plugin-include-dependencies
+
 provider:
   name: aws
   runtime: nodejs6.10
@@ -17,7 +20,7 @@ functions:
     handler: binary/index.fetchBinary
     package:
       include:
-        - binary/**
+        - binary/sample.pdf
     memorySize: 1024
     timeout: 10
     events:
@@ -27,9 +30,6 @@ functions:
 
   fetchText:
     handler: text/index.fetchText
-    package:
-      include:
-        - text/**
     memorySize: 1024
     timeout: 10
     events:
