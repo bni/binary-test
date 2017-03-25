@@ -1,12 +1,16 @@
 service: binary-test
 
 package:
-  individually: true
   exclude:
-    - "**/*"
-
-plugins:
-  - serverless-plugin-include-dependencies
+    - .DS_Store
+    - .git/**
+    - .idea/**
+    - package.json
+    - README.md
+    - node_modules/chai/**
+    - node_modules/mocha/**
+    - node_modules/serverless/**
+    - test/**
 
 provider:
   name: aws
@@ -18,9 +22,6 @@ provider:
 functions:
   fetchBinary:
     handler: binary/index.fetchBinary
-    package:
-      include:
-        - binary/sample.pdf
     memorySize: 1024
     timeout: 10
     events:
