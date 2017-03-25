@@ -1,6 +1,8 @@
 "use strict";
 
 const moment = require("moment");
+const S3 = require("aws-sdk/clients/s3");
+//const request = require("request");
 
 module.exports.fetchText = (event, context, callback) => {
   const response = {

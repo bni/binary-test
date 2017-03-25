@@ -3,7 +3,7 @@
 const fs = require("fs");
 
 module.exports.fetchBinary = (event, context, callback) => {
-  const content = fs.readFileSync("binary/sample.pdf");
+  const content = fs.readFileSync("data/sample.pdf");
 
   const response = {
     statusCode: 200,
