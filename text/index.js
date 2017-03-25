@@ -1,18 +1,13 @@
 "use strict";
 
-const fs = require("fs");
-
-module.exports.fetchBinary = (event, context, callback) => {
+module.exports.fetchText = (event, context, callback) => {
   try {
-    const content = fs.readFileSync("binary/sample.pdf");
-
     const response = {
       statusCode: 200,
       headers: {
-        "Content-Type": "application/pdf"
+        "Content-Type": "text/plain"
       },
-      body: content.toString("base64"),
-      isBase64Encoded: true
+      body: "Hello World!"
     };
 
     return callback(null, response);

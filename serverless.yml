@@ -1,31 +1,38 @@
 service: binary-test
 
 package:
+  individually: true
   exclude:
-    - .DS_Store
-    - .git/**
-    - .idea/**
-    - package.json
-    - README.md
-    - node_modules/chai/**
-    - node_modules/mocha/**
-    - node_modules/serverless/**
-    - test/**
+    - "**/*"
 
 provider:
   name: aws
-  runtime: nodejs4.3
+  runtime: nodejs6.10
   profile: default
   region: eu-west-1
   stage: dev
-  cfLogs: true
 
 functions:
   fetchBinary:
     handler: binary/index.fetchBinary
+    package:
+      include:
+        - binary/**
     memorySize: 1024
     timeout: 10
     events:
       - http:
           path: fetchBinary
-          method: get
+          method: GET
+
+  fetchText:
+    handler: text/index.fetchText
+    package:
+      include:
+        - text/**
+    memorySize: 1024
+    timeout: 10
+    events:
+      - http:
+          path: fetchText
+          method: GET
