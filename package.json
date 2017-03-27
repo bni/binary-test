@@ -14,7 +14,9 @@
   "dependencies": {
     "moment": "2.18.1",
     "aws-sdk": "2.32.0",
-    "request": "2.81.0"
+    "request": "2.81.0",
+    "soap": "0.19.0",
+    "mock-require": "2.0.1"
   },
   "devDependencies": {
     "chai": "3.5.0",
